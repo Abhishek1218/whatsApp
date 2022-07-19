@@ -1,0 +1,56 @@
+<div class="side">
+    <div class="sideHead">
+        <div class="img-head-Container">
+            <i 
+                class="fa fa-2x fa-user" 
+                aria-hidden="true">
+            </i>
+        </div>
+        <div class="actionsContainer">
+            <div class="head-icons">
+                <i 
+                    class="fa fa-2x fa-comments-o" 
+                    aria-hidden="true">
+                </i>
+                <i 
+                    class="fa fa-2x fa-ellipsis-v" 
+                    aria-hidden="true">
+                </i>
+            </div>
+        </div>
+    </div>
+
+    
+
+    <div class="sidePeople">
+        <div class="conversation" 
+            *ngFor="let people of conversation"
+            (click)="conversationClicked.emit(people)"
+            >
+            <div class="all-images">
+            <i 
+                class="fa fa-2x fa-user" 
+                aria-hidden="true">
+            </i>
+            </div>
+            <div class="all-content">
+                <div class="conversationHead">
+                    <div class="personName">
+                        {{people.name}}
+                    </div>
+                    <div class="messageTime">
+                        {{people.time}}
+                    </div>
+                </div>
+                <div class="message">
+                    <i *ngIf="people.lastMessageRead"
+                        class="fa fa-check" 
+                        aria-hidden="true"
+                        style="color: blue;">
+                    </i>
+                    {{people.lastMessage}}
+                </div>
+            </div>
+        </div>  
+    </div>
+</div>

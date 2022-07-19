@@ -1,0 +1,94 @@
+<div class="container" 
+*ngIf="!showProfile">
+    <div class="header">
+        <div class="header-content">
+            <div 
+                class="img-section"
+                (click)="openProfile()"
+            >
+                <div class="image">
+                    <i 
+                        class="fa fa-2x fa-user" 
+                        aria-hidden="true">
+                    </i>
+                </div>   
+                
+                <div  class="name-area">
+                    {{conversation.name}}
+                </div>
+            </div>
+            <div class="action-btn">
+                    <i 
+                        class="fa fa-2x fa-paperclip" 
+                        aria-hidden="true">
+                    </i>
+                    <i
+                        class="fa fa-2x fa-ellipsis-v" 
+                        aria-hidden="true">
+                    </i>
+            </div>
+        </div>
+    </div>
+
+    <div class="body-content">
+        <div 
+            class="text-message"
+            [ngClass]="{senderMe:text.sender}"
+            *ngFor="let text of conversation.messages"
+        >
+            <div class="text-content">
+                {{text.body}}
+                <div class="time">
+                    {{text.time}}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="emoji">
+            <i 
+                class="fa fa-smile-o fa-2x"
+                 aria-hidden="true">
+            </i>
+        </div>
+        <div class="text-input">
+            <input type="text" >
+        </div>
+        <div class="mic">
+            <i 
+                class="fa fa-microphone fa-2x" 
+                aria-hidden="true">
+            </i>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- When click on the top bar of the chat-side, it shows basic details of the profile, like image name and mobile number -->
+<div class="profileOutput">
+    <div 
+        class="profile"
+        *ngIf="showProfile"
+    >   <div class="image">
+            <div>
+                <i 
+                    class="fa fa-2x fa-user" 
+                    aria-hidden="true"></i>
+            </div>
+            <div>
+                <h1>{{conversation.name}}</h1>
+                <h2>9383756672</h2>
+            </div>
+        </div>
+        <div 
+            class="close"
+            (click)="closeProfile()"
+        >
+        <i 
+            class="fa fa-2x fa-window-close" 
+            aria-hidden="true"></i>
+        </div>    
+    </div>
+</div>

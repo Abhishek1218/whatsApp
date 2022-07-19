@@ -1,0 +1,23 @@
+<div id="container">      
+    <app-left-container 
+         (conversationClicked)="onConversationSelected($event)" >
+    </app-left-container>
+
+    <div class="chat-section">
+        <div 
+             class="whatAppIcon" 
+             *ngIf="!chatting"
+        >
+              <img 
+                width="400"
+                src="../assets/whatsAppWebicon.jpg" alt="whatAppIcon"
+              >
+              <h2>WhatsApp web</h2>         
+        </div>
+        <app-chat-section 
+           *ngIf="chatting"
+           [conversation]="chatting"
+        >
+        </app-chat-section>
+    </div>
+</div>
